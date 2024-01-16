@@ -31,7 +31,7 @@ model Cidade {
   estado    Estado @relation(fields: [estado_id], references: [id])
 
   local_coleta LocalColeta[]
-  pessoa       Pessoa[]
+  // pessoa       Pessoa[]
 
   created_at DateTime @default(now())
   update_at  DateTime @updatedAt
@@ -46,7 +46,7 @@ model LocalColeta {
   cidade_id Int
   cidade    Cidade @relation(fields: [cidade_id], references: [id])
 
-  doacao Doacao[]
+  // doacao Doacao[]
 
   created_at DateTime @default(now())
   update_at  DateTime @updatedAt
@@ -54,48 +54,48 @@ model LocalColeta {
   @@map("locais_coleta")
 }
 
-model Pessoa {
-  id   Int    @id @default(autoincrement())
-  nome String
+// model Pessoa {
+//   id   Int    @id @default(autoincrement())
+//   nome String
 
-  cidade_id Int
-  cidade    Cidade @relation(fields: [cidade_id], references: [id])
+//   cidade_id Int
+//   cidade    Cidade @relation(fields: [cidade_id], references: [id])
 
-  tipo_sanguineo_id Int
-  tipo_sanguineo    TipoSanguineo @relation(fields: [tipo_sanguineo_id], references: [id])
+//   tipo_sanguineo_id Int
+//   tipo_sanguineo    TipoSanguineo @relation(fields: [tipo_sanguineo_id], references: [id])
 
-  doacao Doacao[]
+//   doacao Doacao[]
 
-  created_at DateTime @default(now())
-  update_at  DateTime @updatedAt
+//   created_at DateTime @default(now())
+//   update_at  DateTime @updatedAt
 
-  @@map("pessoas")
-}
+//   @@map("pessoas")
+// }
 
-model Doacao {
-  id   Int      @id @default(autoincrement())
-  data DateTime
+// model Doacao {
+//   id   Int      @id @default(autoincrement())
+//   data DateTime
 
-  pessoa_id Int
-  pessoa    Pessoa @relation(fields: [pessoa_id], references: [id])
+//   pessoa_id Int
+//   pessoa    Pessoa @relation(fields: [pessoa_id], references: [id])
 
-  local_coleta_id Int
-  local_coleta    LocalColeta @relation(fields: [local_coleta_id], references: [id])
+//   local_coleta_id Int
+//   local_coleta    LocalColeta @relation(fields: [local_coleta_id], references: [id])
 
-  created_at DateTime @default(now())
-  update_at  DateTime @updatedAt
+//   created_at DateTime @default(now())
+//   update_at  DateTime @updatedAt
 
-  @@map("doacoes")
-}
+//   @@map("doacoes")
+// }
 
-model TipoSanguineo {
-  id   Int    @id @default(autoincrement())
-  nome String
+// model TipoSanguineo {
+//   id   Int    @id @default(autoincrement())
+//   nome String
 
-  pessoa Pessoa[]
+//   pessoa Pessoa[]
 
-  created_at DateTime @default(now())
-  update_at  DateTime @updatedAt
+//   created_at DateTime @default(now())
+//   update_at  DateTime @updatedAt
 
-  @@map("tipo_sanguineo")
-}
+//   @@map("tipos_sanguineos")
+// }

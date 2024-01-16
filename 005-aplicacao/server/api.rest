@@ -26,3 +26,34 @@ Content-Type: application/json
 ### DELETE
 DELETE http://localhost:5555/estados/11
 
+
+######################################
+
+### GET
+GET http://localhost:5555/cidades/
+
+### GET BY ID
+GET http://localhost:5555/cidades/6
+
+### CREATE
+POST http://localhost:5555/cidades/
+Content-Type: application/json
+
+{
+    "nome": "Nova Muntum",
+    "estado_id": 2
+}
+
+### UPDATE
+PUT http://localhost:5555/cidades
+Content-Type: application/json
+
+{
+    "id": 1,
+    "nome": "Jacinto",
+    "estado_id": 1
+}
+
+### DELETE
+DELETE http://localhost:5555/cidades/5
+
