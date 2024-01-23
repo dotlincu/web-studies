@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Menu from './components/menu/Menu'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,7 +15,7 @@ function App() {
       <button onClick={() => setCount(count - 1)}>Remover</button>
       <button onClick={() => setCount(count * 2)}>Dobrar</button>
 
-
+      <Menu />
     </>
   )
 }

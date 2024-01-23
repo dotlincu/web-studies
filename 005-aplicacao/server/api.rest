@@ -40,7 +40,7 @@ POST http://localhost:5555/cidades/
 Content-Type: application/json
 
 {
-    "nome": "Nova Muntum",
+    "nome": "Santos",
     "estado_id": 2
 }
 
