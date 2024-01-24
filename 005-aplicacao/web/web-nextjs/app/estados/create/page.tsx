@@ -1,13 +1,14 @@
-"us client"
+"use client"
 
 import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function CreateEstado() {
 
     const [ nome, setNome ] = useState('');
     const [ sigla, setSigla ] = useState('');
 
-    function handleSubmit(event: FormEvent) {
+    async function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
         const data = {
@@ -22,6 +23,22 @@ export default function CreateEstado() {
                 'Content-Type': 'application/json'
             }
         }
+
+        try { 
+            const response = await fetch('http://localhost:5000/estados', requestInit)
+
+            if (response.ok) {
+                const estado = await response.json();
+                const { id } = estado;
+                window.alert(`Estado inserido com sucesso! Id: ${id}`)
+                // Redirect -> /estados
+                push('/estados')
+            }
+        }
+        catch (error) {
+
+        }
+
     }
     
     return(
@@ -31,12 +48,18 @@ export default function CreateEstado() {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" onChange={(event)=> {}} />
+                    <input type="text" name="nome" id="nome" onChange={
+                        (event) => {setNome(event.target.value)}
+                    } 
+                    />
                 </div>
                 
                 <div>
                     <label htmlFor="sigla">Sigla</label>
-                    <input type="text" name="sigla" id="sigla" />
+                    <input type="text" name="sigla" id="sigla" onChange={
+                        (event) => {setSigla(event.target.value)}
+                    } 
+                    />
                 </div>
 
                 <div>

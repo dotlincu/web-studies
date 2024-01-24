@@ -20,7 +20,7 @@ dist/
 *.war
 
 # Ignore package-lock.json for npm projects
-package-lock.json
+# package-lock.json
 
 # Ignore .DS_Store files on macOS
 .DS_Store

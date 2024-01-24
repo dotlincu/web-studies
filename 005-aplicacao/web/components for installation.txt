@@ -1,0 +1,2 @@
+cd react-vite
+npm install axios

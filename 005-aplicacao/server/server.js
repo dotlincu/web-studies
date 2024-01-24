@@ -1,5 +1,4 @@
 import express from 'express';
-// import { prisma } from "./src/database/client.js";
 import cors from 'cors';
 import { estadoRouter } from "./src/routes/estados.js";
 import { cidadeRouter } from "./src/routes/cidades.js";
@@ -14,22 +13,8 @@ server.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-// server.get('/estados', async (req, res) => {
-//     const estados = await prisma.estado.findMany();
-
-//     return res.json(estados);
-// });
-
-// server.get('/cidades', async (req, res) => {
-//     const cidades = await prisma.cidade.findMany();
-    
-//     return res.json(cidades);
-// });
-
-// Middleware para fazer o parsing de JSON
+// Middleware para fazer o parsing de JSON e permitir o CORS
 server.use(express.json());
-
-// Middleware para permitir o CORS
 server.use(cors());
 
 // Usando os routers

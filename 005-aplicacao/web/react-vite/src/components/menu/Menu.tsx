@@ -9,16 +9,10 @@ const Menu = () => {
         
             <ul>
                 <li>
-                    <Link 
-                        to="/">
-                            Home
-                    </Link>
+                    <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/estados">
-                        Estados
-                    </Link>
-
+                    <Link to="/estados">Estados</Link>
                 </li>
                 <li>Cidades</li>
                 <li><a href="http://www.ufop.br">UFOP</a></li>
@@ -27,7 +21,6 @@ const Menu = () => {
         </>
     );
 
-
-}
+};
 
 export default Menu
