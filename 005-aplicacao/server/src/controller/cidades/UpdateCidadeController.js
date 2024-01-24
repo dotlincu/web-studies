@@ -2,7 +2,7 @@ import { prisma } from "../../database/client.js";
 
 export class UpdateCidadeController {
     async handle(request, response) {
-        const { id } = request.body;
+        const { id, nome, estado_id } = request.body;
 
         const cidade = await prisma.cidade.update({
 
@@ -11,8 +11,12 @@ export class UpdateCidadeController {
             },
             
             data: {
-                nome: request.body.nome,
-                sigla: request.body.sigla
+                nome,
+                estado: {
+                    connect: {
+                        id: estado_id
+                    }
+                }
             }
         });
 

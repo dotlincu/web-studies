@@ -15,10 +15,7 @@ export class CreateCidadeController {
                 message: 'Invalid data. Nome and estado_id are required.'
             });
         };
-
-        // Sanitização 
-        // ...
-
+        
         // Persistência dos dados -> Model
         const cidade = await prisma.cidade.create({
             data: {

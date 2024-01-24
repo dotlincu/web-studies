@@ -32,7 +32,8 @@ export default function CreateEstado() {
                 const { id } = estado;
                 window.alert(`Estado inserido com sucesso! Id: ${id}`)
                 // Redirect -> /estados
-                push('/estados')
+                
+                useRouter().push('/estados');
             }
         }
         catch (error) {
