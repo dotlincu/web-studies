@@ -4,19 +4,24 @@ export class UpdateEstadoController {
     async handle(request, response) {
         const { id } = request.body;
 
-        const estado = await prisma.estado.update({
+        try {
 
-            where: {
-                id
-            },
-            
-            data: {
-                nome: request.body.nome,
-                sigla: request.body.sigla
-            }
-        });
+                const estado = await prisma.estado.update({
 
-        return response.json(estado);
+                where: {
+                    id
+                },
+                
+                data: {
+                    nome: request.body.nome,
+                    sigla: request.body.sigla
+                }
+            });
+
+            return response.json(estado);
+        } catch (error) {
+            return response.status(404).json({ error: "Estado não encontrado." });
+        }
 
     };
 };

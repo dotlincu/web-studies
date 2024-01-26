@@ -1,20 +1,20 @@
 ### GET
-GET http://localhost:5555/estados
+GET http://localhost:5000/estados
 
 ### GET BY ID
-GET http://localhost:5555/estados/5
+GET http://localhost:5000/estados/4
 
 ### CREATE
-POST http://localhost:5555/estados
+POST http://localhost:5000/estados
 Content-Type: application/json
 
 {
-    "nome": "Tocantins",
-    "sigla": "TO"
+    "nome": "Paraíba",
+    "sigla": "PB"
 }
 
 ### UPDATE
-PUT http://localhost:5555/estados
+PUT http://localhost:5000/estados
 Content-Type: application/json
 
 {
@@ -24,19 +24,19 @@ Content-Type: application/json
 }
 
 ### DELETE
-DELETE http://localhost:5555/estados/11
+DELETE http://localhost:5000/estados/11
 
 
 ######################################
 
 ### GET
-GET http://localhost:5555/cidades/
+GET http://localhost:5000/cidades/
 
 ### GET BY ID
-GET http://localhost:5555/cidades/6
+GET http://localhost:5000/cidades/6
 
 ### CREATE
-POST http://localhost:5555/cidades/
+POST http://localhost:5000/cidades/
 Content-Type: application/json
 
 {
@@ -45,7 +45,7 @@ Content-Type: application/json
 }
 
 ### UPDATE
-PUT http://localhost:5555/cidades
+PUT http://localhost:5000/cidades
 Content-Type: application/json
 
 {
@@ -55,5 +55,5 @@ Content-Type: application/json
 }
 
 ### DELETE
-DELETE http://localhost:5555/cidades/5
+DELETE http://localhost:5000/cidades/5
 

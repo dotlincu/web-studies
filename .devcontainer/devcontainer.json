@@ -16,8 +16,8 @@
 				"alexcvzz.vscode-sqlite",
 				"qwtel.sqlite-viewer",
 				"humao.rest-client",
-				"dotenv.dotenv-vscode",
-				"dracula-theme.theme-dracula"
+				"dotenv.dotenv-vscode"
+				// "dracula-theme.theme-dracula"
 			]
 		}
 	}
