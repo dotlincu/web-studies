@@ -1,12 +1,10 @@
-import { prisma } from '../../database/client.js';
+import { prisma } from '../../database/client.js'
 
 export class CreateEstadoController {
 
     async handle(request, response) {
 
         try {
-
-        
             console.log(request.body);
 
             // request.body -> JSON
@@ -16,11 +14,10 @@ export class CreateEstadoController {
             if (nome === "") {
                 return response.status(400).json({
                     message: 'Invalid data. Nome and sigla are required.'
-                });
+                })
             };
 
-            // Sanitização 
-            // ...
+            // Sanitização ...
 
             // Persistência dos dados -> Model
             const estado = await prisma.estado.create({
@@ -39,6 +36,6 @@ export class CreateEstadoController {
               // Outro erro não relacionado à violação de restrição única
               console.error(error);
             }
-        };
-    };
-};
+        }
+    }
+}

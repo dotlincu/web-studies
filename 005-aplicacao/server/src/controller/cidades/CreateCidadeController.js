@@ -1,30 +1,35 @@
-import { prisma } from '../../database/client.js';
+import { prisma } from '../../database/client.js'
 
 export class CreateCidadeController {
 
     async handle(request, response) {
+        try {
+            const { nome, estado_id } = request.body;
 
-        console.log(request.body);
+            const cidade = await prisma.cidade.create({
 
-        // request.body -> JSON
-        const { nome, estado_id } = request.body;
+                data: {
+                    nome,
+                    estado: {
+                        connect: {
+                            id: estado_id
+                        }
+                    }
+                }
 
-        // Validações: model, DTO, Parser, ...
-        if (nome === "") {
-            return response.status(400).json({
-                message: 'Invalid data. Nome and estado_id are required.'
             });
-        };
-        
-        // Persistência dos dados -> Model
-        const cidade = await prisma.cidade.create({
-            data: {
-                nome,
-                estado_id
-            }
-        });
 
-        return response.json(cidade);
+            return response.json(cidade);
+        } catch (error) {
+            // Manipulação de erros
+            console.error('Erro ao criar cidade:', error);
 
-    };
-};
+            return response.status(500).json({
+                success: false,
+                message: 'Erro interno do servidor ao criar cidade.',
+                error: error.message || 'Erro desconhecido.',
+            });
+        }
+    }
+
+}

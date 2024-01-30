@@ -1,5 +1,5 @@
 import express from 'express';
-import cors from 'cors';
+// import cors from 'cors';
 import { estadoRouter } from "./src/routes/estados.js";
 import { cidadeRouter } from "./src/routes/cidades.js";
 
@@ -15,7 +15,7 @@ server.get('/', (req, res) => {
 
 // Middleware para fazer o parsing de JSON e permitir o CORS
 server.use(express.json());
-server.use(cors());
+// server.use(cors());
 
 // Usando os routers
 server.use(estadoRouter);
