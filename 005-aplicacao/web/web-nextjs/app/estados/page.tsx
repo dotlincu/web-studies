@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import Line from "../components/Line"
+import Line from "../components/Line"
 
 const getAllEstados = async () => {
 
@@ -32,9 +32,7 @@ export default async function Estado() {
                     estados.map( (estado) =>{
 
                         return(
-                            <li key={estado.id}>
-                                {estado.nome}-{estado.sigla}
-                            </li>
+                            <Line key={estado.id} id={estado.id} description={estado.nome} />
                         )
 
                     })

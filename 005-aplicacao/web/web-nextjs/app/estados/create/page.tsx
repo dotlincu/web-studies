@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react"
 import { useRouter } from "next/navigation";
-import Input from "../../../components/forms/Input";
+import Input from "@/app/components/forms/Input";
 
 export default function CreateEstado() {
 
