@@ -4,9 +4,6 @@ import { FormEvent, useState } from "react"
 import { useRouter } from "next/navigation";
 import Input from "@/app/components/forms/Input";
 
-import getAllEstados from "@/app/repository/estados/GetAllEstados";
-import EstadoInterface from "@/app/types/estado";
-
 export default function CreateEstado() {
 
     const [nome, setNome] = useState('');
