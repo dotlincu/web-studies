@@ -1,5 +1,6 @@
 import Link from "next/link";
-import Line from "../components/Line"
+import Line from "../components/Line";
+// import EstadoInterface from "../types/estado";
 
 const getAllEstados = async () => {
 

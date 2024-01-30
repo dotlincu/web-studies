@@ -1,16 +1,11 @@
-"use client"
-
 import { FormEvent, useState } from "react"
 import { useRouter } from "next/navigation";
 import Input from "@/app/components/forms/Input";
 
-import getAllEstados from "@/app/repository/estados/GetAllEstados";
-import EstadoInterface from "@/app/types/estado";
-
 export default function CreateEstado() {
 
     const [nome, setNome] = useState('');
-    const [sigla, setSigla] = useState('');
+    const [estado, setEstado] = useState('');
 
     const { push } = useRouter()
 
@@ -19,7 +14,7 @@ export default function CreateEstado() {
 
         const data = {
             nome,
-            sigla
+            estado_id: estado
         }
 
         const requestInit : RequestInit = {
@@ -35,9 +30,9 @@ export default function CreateEstado() {
             const response = await fetch('http://localhost:5000/estados', requestInit)
 
             if (response.ok) {
-                const estado = await response.json();
-                const { id } = estado;
-                window.alert(`Estado inserido com sucesso! Id: ${id}`)
+                const cidade = await response.json();
+                const { id } = cidade;
+                window.alert(`Cidade inserida com sucesso! Id: ${id}`)
                 // Redirect -> /estados
                 push('/estados')
             }
@@ -52,13 +47,13 @@ export default function CreateEstado() {
     return(
         <main className="container m-auto">
 
-            <h1>Cadastro de estados: {nome}-{sigla}</h1>
+            <h1>Cadastro de estados: {nome}-{}</h1>
 
             <form onSubmit={handleSubmit}>
 
                 <Input name="nome" label="Nome" setValue={(event) =>{setNome(event.target.value)}} />
 
-                <Input name="sigla" label="Sigla" setValue={(event) =>{setSigla(event.target.value)}} />
+                <Input name="estadoId" label="EstadoId" setValue={(event) =>{setEstado(event.target.value)}} />
 
                 <div>
                     <button 
