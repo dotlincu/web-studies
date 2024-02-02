@@ -1,8 +1,9 @@
-import CidadeInterface from "./cidade";
-
-export default interface EstadoInterface {
+interface EstadoInterface {
   id: number;
   nome: string;
   sigla: string;
-  cidades: CidadeInterface[];
+  created_at: string;
+  updated_at: string;
 }
+
+export default EstadoInterface;

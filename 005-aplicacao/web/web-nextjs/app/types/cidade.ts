@@ -1,8 +1,11 @@
-import EstadoInterface from './estado';
+import EstadoInterface from "./estado";
 
-export default interface CidadeInterface {
+interface CidadeInterface {
   id: number;
   nome: string;
-  estado: EstadoInterface;
+  estado: EstadoInterface
+  created_at: string;
+  updated_at: string;
 }
 
+export default CidadeInterface
